@@ -12,7 +12,7 @@ public class SimpleFrame extends JFrame implements ActionListener {
 
         super();
 
-        //Frame's configurations
+        //Frame's configuration
         Base.frame( this,"Exercice 1 : Exemple de JFrame", 400, true);
 
         //Set BorderLayout to our ContentPane

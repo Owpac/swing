@@ -14,28 +14,30 @@ public class ActionButton extends JFrame implements ActionListener {
     public ActionButton() {
         super();
 
-        //Frame's configurations
+        //Attribute's initiaisation
+        this.listButton = new ArrayList<>();
+
+        //Frame's configuration
         Base.frame( this,"Exercice 3 : Associer des actions aux boutons", 400, true);
 
-        //Panel's configurations
+        //Panel's initialisation
         JPanel row1 = new JPanel();
         JPanel row2 = new JPanel();
+        JPanel container = new JPanel();
 
-        //Test Button configurations
+        //Test Button configuration
         this.testButton = new JButton( "Test clic" );
         this.testButton.addActionListener( this );
         row1.add( this.testButton );
 
-        this.listButton = new ArrayList<>();
-
+        //Title Button configuration
         for (int i = 0; i < 3; i++) {
             this.listButton.add( new JButton( "Titre : " + (i + 1) ) );
             this.listButton.get( i ).addActionListener( this );
             row2.add( this.listButton.get( i ) );
         }
 
-        //Panel's configurations
-        JPanel container = new JPanel();
+        //Panel's configuration
         container.setLayout( new BoxLayout( container, BoxLayout.PAGE_AXIS ) );
         container.add( row1 );
         container.add( row2 );
@@ -46,7 +48,7 @@ public class ActionButton extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
+        JButton source = (JButton) e.getSource();
 
         if (source == this.testButton) {
             System.out.println( "Test Clic !" );

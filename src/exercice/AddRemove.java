@@ -18,19 +18,21 @@ public class AddRemove extends JFrame implements ActionListener {
     public AddRemove() {
         super();
 
-        //Frame's configurations
-        Base.frame( this,"Exercice 4 : Auditeurs", 400, true);
-
+        //Attribute's initiaisation
         this.listButton = new ArrayList<>();
 
-        //Panel's configurations
+        //Frame's configuration
+        Base.frame( this,"Exercice 4 : Auditeurs", 400, true);
+
+        //Panel's initialisation
         JPanel panel = new JPanel();
 
-        //Test Button configurations
+        //Add Button configuration
         this.addButton = new JButton( "Add" );
         this.addButton.addActionListener( this );
         panel.add( this.addButton );
 
+        //Reset Button configuration
         this.resetButton = new JButton( "Reset" );
         this.resetButton.addActionListener( this );
         panel.add( this.resetButton );
@@ -45,6 +47,7 @@ public class AddRemove extends JFrame implements ActionListener {
 
         if (source == this.addButton) {
 
+            //We create one button
             cpt++;
             JButton button = new JButton( "Boutton " + cpt );
             button.addActionListener( this );
@@ -54,15 +57,18 @@ public class AddRemove extends JFrame implements ActionListener {
 
         } else if (source == this.resetButton) {
 
+            //We remove all created button with the Add button
             for (JButton button : listButton) {
-                cpt--;
                 this.getContentPane().remove( button );
             }
+
+            cpt = 0;
             this.listButton.clear();
             this.setContentPane( this.getContentPane() );
 
         } else {
 
+            //We remove only one button
             this.getContentPane().remove( source );
             this.listButton.remove( source );
             this.setContentPane( this.getContentPane() );

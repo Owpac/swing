@@ -5,12 +5,12 @@ import javax.swing.*;
 public class Base {
 
     /**
-     * Default configuration for init a Frame.
-     * @param frame The frame that we want to configure
-     * @param title The title's frame
-     * @param width The width's frame
-     * @param height The height's frame
-     * @param resizable
+     * Default configuration for a Frame.
+     * @param frame The frame that we want to configure.
+     * @param title The title of the frame.
+     * @param width The width of the frame.
+     * @param height The height of the frame.
+     * @param resizable Boolean, true if you want to allow rezize of the frame, fasle if you don't want.
      */
     public static void frame(JFrame frame, String title, int width, int height, boolean resizable) {
 
@@ -22,11 +22,11 @@ public class Base {
     }
 
     /**
-     *
-     * @param frame
-     * @param title
-     * @param size
-     * @param resizable
+     * Default configuration for a Frame, but with same size on width and height.
+     * @param frame The frame that we want to configure.
+     * @param title The title of the frame.
+     * @param size The size of the frame.
+     * @param resizable Boolean, true if you want to allow rezize of the frame, fasle if you don't want.
      */
     public static void frame(JFrame frame, String title, int size, boolean resizable) {
         frame( frame, title, size, size, resizable );

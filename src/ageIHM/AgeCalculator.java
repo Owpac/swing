@@ -19,9 +19,10 @@ public class AgeCalculator extends JFrame implements ActionListener {
 
     public AgeCalculator() {
 
-        //Frame's configurations
+        //Frame's configuration
         Base.frame(this, "Exercice 6 : Mais quel est donc votre age?", 400, true);
 
+        //First row configuration
         JPanel row1 = new JPanel();
         row1.setLayout( new GridLayout( 2, 2 ) );
 
@@ -35,18 +36,19 @@ public class AgeCalculator extends JFrame implements ActionListener {
         this.firstnameInput = new JTextField();
         row1.add( firstnameInput );
 
-
+        //Second row configuration
         JPanel row2 = new JPanel();
         JLabel birthday = new JLabel( "Votre annee de naissance :" );
         row2.add( birthday );
         this.birthdayInput = new JTextField( 10 );
         row2.add( birthdayInput );
 
+        //Third row configuration
         JPanel row3 = new JPanel();
-
         this.ageButton = new JButton( "Age?" );
         this.ageButton.addActionListener( this );
         row3.add( this.ageButton );
+
         this.reverseButton = new JButton( "Reverse" );
         this.reverseButton.addActionListener( this );
         row3.add( this.reverseButton );
@@ -64,10 +66,11 @@ public class AgeCalculator extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
+        JButton source = (JButton) e.getSource();
 
         if (source == ageButton) {
 
+            //Securisation for Integer.parseInt (if this is letters in the input instead of numbers)
             try {
 
                 int age = Integer.parseInt( this.birthdayInput.getText() );
@@ -98,16 +101,16 @@ public class AgeCalculator extends JFrame implements ActionListener {
 
         } else if (source == reverseButton) {
 
+            //We inverse the first input
             StringBuilder nameInputInverse = new StringBuilder( this.nameInput.getText() ).reverse();
-
             this.nameInput.setText( nameInputInverse.toString() );
 
+            //We inverse the second input
             StringBuilder firstnameInputInverse = new StringBuilder( this.firstnameInput.getText() ).reverse();
-
             this.firstnameInput.setText( firstnameInputInverse.toString() );
 
+            //We inverse the third input
             StringBuilder birthdayInputInverse = new StringBuilder( this.birthdayInput.getText() ).reverse();
-
             this.birthdayInput.setText( birthdayInputInverse.toString() );
 
         }

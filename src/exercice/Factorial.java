@@ -16,16 +16,19 @@ public class Factorial extends JFrame implements ActionListener {
     public Factorial() {
         super();
 
-        //Frame's configurations
-        Base.frame( this,"Exercice 5 : Factorielle", 400, true);
+        //Frame's configuration
+        Base.frame( this, "Exercice 5 : Factorielle", 400, true );
 
+        //Panel's initialisation
         JPanel panel = new JPanel();
 
+        //Input configuration
         this.input = new JTextField();
         this.input.setPreferredSize( new Dimension( this.getWidth() - 20, 40 ) );
         this.input.setHorizontalAlignment( JTextField.CENTER );
         panel.add( this.input );
 
+        //Button configuration
         this.execute = new JButton( "Calculer" );
         this.execute.addActionListener( this );
         panel.add( this.execute );
@@ -36,7 +39,9 @@ public class Factorial extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
+        JButton source = (JButton) e.getSource();
+
+        //Securisation for Integer.parseInt (if this is letters in the input instead of numbers)
         try {
             int number = Integer.parseInt( this.input.getText() );
             if (source == this.execute) {
@@ -49,10 +54,9 @@ public class Factorial extends JFrame implements ActionListener {
                             null,
                             "Le factorielle de " + this.input.getText() + " = " + resultat );
                 } else {
-                    //TODO: Throw error
                     JOptionPane.showMessageDialog(
                             null,
-                            "Erreur : nombre saisi incorrect.",
+                            "Erreur : nombre saisi incorrect, le nombre doit etre entre 1 et 17.",
                             "Erreur",
                             JOptionPane.ERROR_MESSAGE );
                 }
